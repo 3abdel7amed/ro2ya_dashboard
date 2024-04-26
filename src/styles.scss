@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Font Importing
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";
+
+// Styling Module Files
+@import "styles/animations";
+@import "styles/utilities";
+@import "ngx-toastr/toastr";
+
+// General Styles
+body {
+  font-family: "Rubik", sans-serif;
+}
+
+* {
+  direction: rtl;
+}
+
+// Toaster Fix
+.toast-container {
+  position: fixed !important;
+}
+
+.toast-container .ngx-toastr {
+  min-width: 350px;
+  max-width: 90vw;
+}
+
+// Spinner Styling
+.loader {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  animation: rotate 1s linear infinite;
+}
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  animation: prixClipFix 2s linear infinite;
+}

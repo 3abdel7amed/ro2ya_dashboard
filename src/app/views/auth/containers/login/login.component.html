@@ -1,0 +1,63 @@
+<div
+  class="login-content vw-100 vh-100 d-flex align-items-center justify-content-between"
+>
+  <!-- Form -->
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="handleLogin(loginForm)"
+    class="form_container mx-auto p-5"
+  >
+    <!-- Logo Container -->
+    <div class="logo_container mx-auto">
+      <img class="w-100" src="./assets/images/Roaya_logo.jpg" alt="شركة رؤية" />
+    </div>
+
+    <!-- Form heading -->
+    <div class="title_container text-center">
+      <p class="title fs-4">الرجاء تسجيل الدخول</p>
+      <span class="subtitle fs-8 text-muted"
+        >مرحبا بك في داش بورد شركة رؤية</span
+      >
+    </div>
+
+    <!-- Inputs Controllers -->
+    <div class="userName mt-4">
+      <label for="userName">اسم المستخدم</label>
+      <input
+        type="text"
+        formControlName="username"
+        class="form-control mt-1"
+        id="userName"
+      />
+      <div
+        *ngIf="isSubmitted && !isUserNameValid"
+        class="alert alert-danger my-2 fs-9 p-2"
+      >
+        برجاء إدخال أسم المستخدم بشكل صحيح
+      </div>
+    </div>
+    <div class="userPassword mt-2">
+      <label for="UserPassword">كلمة المرور</label>
+      <input
+        type="text"
+        formControlName="password"
+        class="form-control mt-1"
+        id="userName"
+      />
+      <div
+        *ngIf="isSubmitted && !isPasswordValid"
+        class="alert alert-danger my-2 fs-9 p-2"
+      >
+        برجاء إدخال كلمة المرور بشكل صحيح
+      </div>
+    </div>
+    <div class="btn-container mt-3">
+      <button
+        class="btn btn-primary d-flex align-items-center justify-content-center w-100"
+      >
+        <span *ngIf="loading" class="loader"></span>
+        <span *ngIf="!loading">تسجيل الدخول</span>
+      </button>
+    </div>
+  </form>
+</div>
