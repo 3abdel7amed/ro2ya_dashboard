@@ -8,7 +8,7 @@ export class NotificationService {
   // notification of angular toaster alerts
   notificationSettings: {} = {
     closeButton: true,
-    positionClass: 'toast-top-right',
+    positionClass: 'toast-top-left',
     timeOut: 2000,
     extendedTimeOut: 1000,
     progressBar: true,

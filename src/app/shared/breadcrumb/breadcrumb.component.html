@@ -1,0 +1,14 @@
+<nav class="my-3 fs-8">
+  <ol class="breadcrumb">
+    @for (item of breadcrumbArray; track $index) {
+    <li class="d-flex align-items-center gap-2 me-2">
+      @if ($index < breadcrumbArray.length - 1) {
+      <span class="text-muted">{{ item }}</span>
+      <i class="fa-solid fa-angles-left text-muted"></i>
+      }@else {
+      <span class="text-black">{{ item }}</span>
+      }
+    </li>
+    }
+  </ol>
+</nav>

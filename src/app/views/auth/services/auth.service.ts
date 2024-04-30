@@ -7,7 +7,9 @@ import { Router } from '@angular/router';
 import { LoginResponse } from '../models/login-response';
 import { Constants } from '../../../constants/constants';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class AuthService {
   constructor(private _HttpClient: HttpClient, private _Router: Router) {}
 

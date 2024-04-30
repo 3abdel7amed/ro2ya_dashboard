@@ -20,6 +20,19 @@ body {
   direction: rtl;
 }
 
+ul {
+  padding: 0px;
+}
+
+.page-link {
+  border-radius: 0px !important;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 // Toaster Fix
 .toast-container {
   position: fixed !important;
@@ -47,4 +60,59 @@ body {
   border-radius: 50%;
   border: 5px solid #fff;
   animation: prixClipFix 2s linear infinite;
+}
+
+.loader-blue::before {
+  border: 5px solid #0d6efd;
+}
+
+.loader-x1 {
+  width: 40px;
+  height: 40px;
+}
+
+.loader-x2 {
+  width: 80px;
+  height: 80px;
+}
+
+.loader-x3 {
+  width: 120px;
+  height: 120px;
+}
+
+.loading-container {
+  min-height: 250px;
+  max-height: 350px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  i {
+    cursor: pointer;
+    border-radius: 100vh;
+    font-size: 10px;
+    width: 16px;
+    height: 16px;
+    padding: 10px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+table {
+  tr {
+    th {
+      background-color: #5981cd80;
+    }
+  }
+}
+
+ul.pagination {
+  padding-inline: 0px;
 }

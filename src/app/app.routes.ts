@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
-import { wrapperGuard } from './views/auth/guards/wrapper.guard';
+import { wrapperGuard } from './views/wrapper/guards/wrapper.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'wrapper', pathMatch: 'full' },

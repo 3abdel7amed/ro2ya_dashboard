@@ -1,0 +1,156 @@
+<!-- Horizontal navbar -->
+<nav
+  #navbar
+  class="wrapper-nav d-flex px-4 py-2 align-items-center justify-content-between border-bottom"
+>
+  <div class="navbar-content">
+    <div
+      class="btn-group d-flex align-items-center gap-2"
+      ngbDropdown
+      role="group"
+    >
+      <i class="fa-solid fa-user" ngbDropdownToggle></i>
+      <span>أدمن</span>
+      <div ngbDropdownMenu>
+        <button class="text-center" ngbDropdownItem (click)="logout()">
+          تسجيل الخروج
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="navbar-brand cursor-pointer">
+    <img src="./assets/images/Roaya_logo.jpg" alt="شعار رؤية" />
+  </div>
+</nav>
+
+<!-- Main dahboard -->
+<div class="custom-container">
+  <!-- Dashboard -->
+  <div class="dashboard row g-0">
+    <!-- Sidenavbar -->
+    <div *ngIf="screenWidth > 768" class="side-navbar col-md-2 border-start">
+      <div class="d-flex flex-column side-nav-content pt-2 px-2">
+        <p class="d-flex align-items-center gap-2 m-0 mx-auto">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span class="fw-bolder">رؤية داش بورد</span>
+        </p>
+        <hr class="w-75 mx-auto" />
+        <ul class="list-unstyled px-0">
+          <li>
+            <a class="main-link" (click)="isCollapsed = !isCollapsed">
+              <i class="fa-solid fa-gears"></i>
+              <span class="fs-7">الإعدادات</span>
+            </a>
+          </li>
+          <!-- Collapse menu -->
+          <li>
+            <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+              <ul class="list-unstyled px-0 pt-2">
+                <li>
+                  <a
+                    class="main-link"
+                    routerLink="setup/location"
+                    routerLinkActive="current"
+                  >
+                    <i class="fa-solid fa-list"></i>
+                    <span class="fs-7">الموقع</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="main-link"
+                    routerLink="setup/direction"
+                    routerLinkActive="current"
+                  >
+                    <i class="fa-solid fa-list"></i>
+                    <span class="fs-7">الاتجهات</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="main-link"
+                    routerLink="setup/floor"
+                    routerLinkActive="current"
+                  >
+                    <i class="fa-solid fa-list"></i>
+                    <span class="fs-7">الادوار</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="main-link"
+                    routerLink="setup/finishing_type"
+                    routerLinkActive="current"
+                  >
+                    <i class="fa-solid fa-list"></i>
+                    <span class="fs-7">نوع التشطيب</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="main-link"
+                    routerLink="setup/unit_type"
+                    routerLinkActive="current"
+                  >
+                    <i class="fa-solid fa-list"></i>
+                    <span class="fs-7">نوع الوحدة</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="main-link"
+                    routerLink="setup/receiving_type"
+                    routerLinkActive="current"
+                  >
+                    <i class="fa-solid fa-list"></i>
+                    <span class="fs-7">طريقة الاستلام</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="main-link"
+                    routerLink="setup/contact"
+                    routerLinkActive="current"
+                  >
+                    <i class="fa-solid fa-list"></i>
+                    <span class="fs-7">أرقام التواصل</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="main-link"
+                    routerLink="setup/extra_features"
+                    routerLinkActive="current"
+                  >
+                    <i class="fa-solid fa-list"></i>
+                    <span class="fs-7">كماليات</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <hr class="w-100" />
+          <li>
+            <a routerLink="unit" class="main-link" routerLinkActive="current">
+              <i class="fa-solid fa-house"></i>
+              <span class="fs-7">الوحدات</span>
+            </a>
+          </li>
+          <hr class="w-100" />
+          <li>
+            <a routerLink="client" class="main-link" routerLinkActive="current">
+              <i class="fa-solid fa-person"></i>
+              <span class="fs-7">العملاء</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- View Container -->
+    <div class="outlet col-12 col-md-10">
+      <div class="content h-100 p-3">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

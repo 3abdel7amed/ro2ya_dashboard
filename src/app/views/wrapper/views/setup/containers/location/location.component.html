@@ -1,0 +1,36 @@
+<div class="container h-100 rounded bg-white py-3">
+  <ul ngbNav #nav="ngbNav" class="nav-tabs px-0">
+    <li [ngbNavItem]="1">
+      <button ngbNavLink>محافظة</button>
+      <ng-template ngbNavContent>
+        <app-government></app-government>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <button ngbNavLink>مدينة</button>
+      <ng-template ngbNavContent>
+        <app-city></app-city>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3">
+      <button ngbNavLink>منطقة</button>
+      <ng-template ngbNavContent>
+        <app-zone></app-zone>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="4">
+      <button ngbNavLink>حي</button>
+      <ng-template ngbNavContent>
+        <app-district></app-district>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="5">
+      <button ngbNavLink>قطعة</button>
+      <ng-template ngbNavContent>
+        <app-plot></app-plot>
+      </ng-template>
+    </li>
+  </ul>
+
+  <div [ngbNavOutlet]="nav"></div>
+</div>

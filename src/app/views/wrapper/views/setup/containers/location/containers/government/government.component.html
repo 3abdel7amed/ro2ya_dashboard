@@ -1,0 +1,83 @@
+<app-breadcrumb [breadcrumbArray]="['الإعدادات', 'الموقع', 'المحافظة']">
+</app-breadcrumb>
+
+<div class="controls d-flex align-items-center gap-2">
+  <button
+    (click)="createGovernment()"
+    class="btn btn-primary d-flex align-items-center justify-content-center gap-2 fs-7"
+  >
+    <span>إنشاء</span>
+    <i class="fa-solid fa-plus"></i>
+  </button>
+</div>
+
+<table
+  *ngIf="!loading; else tableLoading"
+  class="table rounded overflow-hidden table-bordered mx-auto w-50 text-center mt-4"
+>
+  <thead>
+    <tr>
+      <th>الرقم</th>
+      <th>الاسم</th>
+      <th>لوحة التحكم</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="governmentTableResponse.length > 0; else noData">
+    <tr *ngFor="let government of governmentTableResponse; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ government.name }}</td>
+      <td class="actions">
+        <i
+          (click)="openEditDialog(government)"
+          placement="top"
+          ngbTooltip="تعديل"
+          class="fa-solid fa-pen text-warning border-warning"
+        ></i>
+        <i
+          (click)="openDeleteConfirmDialog(government.id, government.name)"
+          placement="top"
+          ngbTooltip="حذف"
+          class="fa-solid fa-trash text-danger border-danger"
+        ></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ngb-pagination
+  class="d-flex justify-content-end mt-5"
+  *ngIf="!loading"
+  [collectionSize]="governmentTableResponse.length"
+  [(page)]="page"
+  [maxSize]="10"
+  [rotate]="true"
+  [ellipses]="false"
+  [boundaryLinks]="true"
+  (pageChange)="changePage()"
+/>
+
+<ng-template #noData>
+  <tbody>
+    <tr>
+      <td colspan="3">
+        <div>
+          <img
+            class="w-100 d-inline-block mx-auto"
+            src="../../../../../../../../../assets/images/No data-cuate.png"
+            alt=""
+          />
+
+          <p class="mx-auto">ليس هنالك بيانات</p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</ng-template>
+
+<ng-template #tableLoading>
+  <div
+    class="loading-container d-flex align-items-center justify-content-center"
+  >
+    <span class="loader loader-blue loader-x1"></span>
+  </div>
+</ng-template>

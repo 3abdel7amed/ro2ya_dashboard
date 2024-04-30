@@ -51,7 +51,7 @@ export class LoginComponent implements OnDestroy {
         (response: LoginResponse) => {
           this.loading = false;
           this._AuthService.setAccessToken = response.access;
-          this._NotificationService.showSuccess('Welcome back admin');
+          this._NotificationService.showSuccess('مرحبا بعودتك');
           this._Router.navigate([this._AuthService.goToAdminHomePage]);
         },
         (error) => {
