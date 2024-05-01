@@ -6,7 +6,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { LocationService } from '../../../../../../services/location.service';
+import { LocationService } from '../../../../services/government.service';
 import { Subscription } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SingleGovernment } from '../../../../models/government.model';
@@ -48,8 +48,8 @@ export class GovernmentCreateModalComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    if (this.data.govern) {
-      this.name?.setValue(this.data.govern.name);
+    if (this.data && this.data.govern) {
+      this.name?.setValue(this.data?.govern.name);
     }
   }
 
@@ -67,7 +67,6 @@ export class GovernmentCreateModalComponent implements OnInit, OnDestroy {
           .subscribe(
             (response) => {
               this.loading = false;
-              console.log(response);
               this._NgbActiveModal.close();
             },
             (error) => {
@@ -84,7 +83,6 @@ export class GovernmentCreateModalComponent implements OnInit, OnDestroy {
           .subscribe(
             (response) => {
               this.loading = false;
-              console.log(response);
               this._NgbActiveModal.close();
             },
             (error) => {

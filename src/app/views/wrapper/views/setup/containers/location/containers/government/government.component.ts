@@ -6,7 +6,7 @@ import {
 } from '../../models/government.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { GovernmentCreateModalComponent } from './components/government-create/government-create-modal.component';
-import { LocationService } from '../../../../services/location.service';
+import { LocationService } from '../../services/government.service';
 import { GovernmentDeleteComponent } from './components/government-delete/government-delete.component';
 
 @Component({
@@ -37,8 +37,6 @@ export class GovernmentComponent implements OnInit {
     this._LocationService.getViewGoverByPagination(this.pagination).subscribe(
       (response: ViewGovernment) => {
         this.governmentTableResponse = response.data;
-        // TODO: Test no data
-        // this.governmentTableResponse = [];
         this.loading = false;
       },
       (error) => {
@@ -55,12 +53,8 @@ export class GovernmentComponent implements OnInit {
       keyboard: false,
     });
 
-    dialog.componentInstance.data = {
-      simpleListMethod: () => this.getAll,
-      previous: '',
-      modalName: 'المحافظة',
-      modalType: 1,
-    };
+    dialog.componentInstance.data = {};
+
     dialog.closed.subscribe(() => this.getAll());
   }
 
@@ -91,8 +85,8 @@ export class GovernmentComponent implements OnInit {
     dialog.closed.subscribe(() => this.getAll());
   }
 
-  changePage() {
-    this.pagination.pageNum = this.page;
+  changePage(page: number) {
+    this.pagination.pageNum = page;
     this.getAll();
   }
 }

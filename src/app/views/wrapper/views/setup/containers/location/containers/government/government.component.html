@@ -11,50 +11,51 @@
   </button>
 </div>
 
-<table
-  *ngIf="!loading; else tableLoading"
-  class="table rounded overflow-hidden table-bordered mx-auto w-50 text-center mt-4"
->
-  <thead>
-    <tr>
-      <th>الرقم</th>
-      <th>الاسم</th>
-      <th>لوحة التحكم</th>
-    </tr>
-  </thead>
-  <tbody *ngIf="governmentTableResponse.length > 0; else noData">
-    <tr *ngFor="let government of governmentTableResponse; let i = index">
-      <td>{{ i + 1 }}</td>
-      <td>{{ government.name }}</td>
-      <td class="actions">
-        <i
-          (click)="openEditDialog(government)"
-          placement="top"
-          ngbTooltip="تعديل"
-          class="fa-solid fa-pen text-warning border-warning"
-        ></i>
-        <i
-          (click)="openDeleteConfirmDialog(government.id, government.name)"
-          placement="top"
-          ngbTooltip="حذف"
-          class="fa-solid fa-trash text-danger border-danger"
-        ></i>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-container" *ngIf="!loading; else tableLoading">
+  <table
+    class="table rounded overflow-hidden table-bordered mx-auto w-50 text-center mt-4"
+  >
+    <thead>
+      <tr>
+        <th>الرقم</th>
+        <th>الاسم</th>
+        <th>لوحة التحكم</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="governmentTableResponse.length > 0; else noData">
+      <tr *ngFor="let government of governmentTableResponse; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ government.name }}</td>
+        <td class="actions">
+          <i
+            (click)="openEditDialog(government)"
+            placement="top"
+            ngbTooltip="تعديل"
+            class="fa-solid fa-pen text-warning border-warning"
+          ></i>
+          <i
+            (click)="openDeleteConfirmDialog(government.id, government.name)"
+            placement="top"
+            ngbTooltip="حذف"
+            class="fa-solid fa-trash text-danger border-danger"
+          ></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-<ngb-pagination
-  class="d-flex justify-content-end mt-5"
-  *ngIf="!loading"
-  [collectionSize]="governmentTableResponse.length"
-  [(page)]="page"
-  [maxSize]="10"
-  [rotate]="true"
-  [ellipses]="false"
-  [boundaryLinks]="true"
-  (pageChange)="changePage()"
-/>
+  <ngb-pagination
+    class="d-flex justify-content-center mt-5"
+    *ngIf="!loading && governmentTableResponse.length > 0"
+    [collectionSize]="governmentTableResponse.length"
+    [(page)]="page"
+    [maxSize]="5"
+    [rotate]="true"
+    [ellipses]="true"
+    [boundaryLinks]="true"
+    (pageChange)="changePage($event)"
+  />
+</div>
 
 <ng-template #noData>
   <tbody>

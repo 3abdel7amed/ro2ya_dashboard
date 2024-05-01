@@ -20,10 +20,22 @@ import { BreadcrumbComponent } from '../../../../shared/breadcrumb/breadcrumb.co
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-import { GovernmentCreateModalComponent } from './containers/location/containers/government/components/government-create/government-create-modal.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { GovernmentCreateModalComponent } from './containers/location/containers/government/components/government-create/government-create-modal.component';
+import { CityCreateComponent } from './containers/location/containers/city/components/city-create/city-create.component';
 import { GovernmentDeleteComponent } from './containers/location/containers/government/components/government-delete/government-delete.component';
+import { CityDeleteComponent } from './containers/location/containers/city/components/city-delete/city-delete.component';
+import { UpdateCityComponent } from './containers/location/containers/city/components/update-city/update-city.component';
+import { ZoneCreateComponent } from './containers/location/containers/zone/components/zone-create/zone-create.component';
+import { ZoneUpdateComponent } from './containers/location/containers/zone/components/zone-update/zone-update.component';
+import { ZoneDeleteComponent } from './containers/location/containers/zone/components/zone-delete/zone-delete.component';
+import { PlotCreateComponent } from './containers/location/containers/plot/components/plot-create/plot-create.component';
+import { PlotUpdateComponent } from './containers/location/containers/plot/components/plot-update/plot-update.component';
+import { PlotDeleteComponent } from './containers/location/containers/plot/components/plot-delete/plot-delete.component';
+import { DistrictCreateComponent } from './containers/location/containers/district/components/district-create/district-create.component';
+import { DistrictUpdateComponent } from './containers/location/containers/district/components/district-update/district-update.component';
+import { DistrictDeleteComponent } from './containers/location/containers/district/components/district-delete/district-delete.component';
 
 @NgModule({
   declarations: [
@@ -36,13 +48,25 @@ import { GovernmentDeleteComponent } from './containers/location/containers/gove
     ContactComponent,
     ExtraFeaturesComponent,
     GovernmentComponent,
+    GovernmentDeleteComponent,
     CityComponent,
+    CityCreateComponent,
+    CityDeleteComponent,
     ZoneComponent,
     DistrictComponent,
     PlotComponent,
     BreadcrumbComponent,
     GovernmentCreateModalComponent,
-    GovernmentDeleteComponent,
+    UpdateCityComponent,
+    ZoneCreateComponent,
+    ZoneUpdateComponent,
+    ZoneDeleteComponent,
+    PlotCreateComponent,
+    PlotUpdateComponent,
+    PlotDeleteComponent,
+    DistrictCreateComponent,
+    DistrictUpdateComponent,
+    DistrictDeleteComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,79 @@
+<div class="modal-header justify-content-between">
+  <h4 class="modal-title" id="modal-basic-title">إضافة الحي</h4>
+  <button
+    type="button"
+    class="btn-close m-0"
+    aria-label="Close"
+    (click)="dismiss()"
+  ></button>
+</div>
+<div class="modal-body px-3">
+  <form class="row" [formGroup]="form" (ngSubmit)="submit(form)">
+    <div class="col-md-6">
+      <div class="drop-down">
+        <label for="name">اسم المنطقة</label>
+        <div class="row">
+          <div class="col">
+            <div ngbDropdown class="d-inline-block">
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="dropdownBasic1"
+                ngbDropdownToggle
+              >
+                <span *ngIf="isAppendLoading" class="loader"></span>
+                <span *ngIf="!isAppendLoading">
+                  {{ selectedName ? selectedName : "إختر" }}</span
+                >
+              </button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button
+                  type="button"
+                  class="text-center"
+                  *ngFor="let entry of appendResponse"
+                  (click)="AppendData = entry"
+                  ngbDropdownItem
+                >
+                  <span> {{ entry.name }}</span>
+                </button>
+                <span
+                  class="text-center"
+                  *ngIf="appendResponse.length == 0 && isAppendLoading == false"
+                >
+                  لا توجد مناطق
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="name-input">
+        <label for="name">اسم المنطقة</label>
+        <input
+          formControlName="name"
+          class="form-control"
+          type="text"
+          id="name"
+        />
+
+        <div
+          *ngIf="nameIsRequired && isSubmitted"
+          class="alert alert-danger fs-7 mt-2 py-2"
+        >
+          الرجاء إدخال إسم المنطقة
+        </div>
+      </div>
+    </div>
+    <div class="btn-container">
+      <button
+        type="submit"
+        class="w-auto me-auto btn btn-primary mt-4 d-flex align-items-center justify-content-center"
+      >
+        <span *ngIf="loading" class="loader"></span>
+        <span *ngIf="!loading">حفظ</span>
+      </button>
+    </div>
+  </form>
+</div>

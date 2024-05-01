@@ -13,21 +13,21 @@
       </ng-template>
     </li>
     <li [ngbNavItem]="3">
+      <button ngbNavLink>قطعة</button>
+      <ng-template ngbNavContent>
+        <app-plot></app-plot>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="4">
       <button ngbNavLink>منطقة</button>
       <ng-template ngbNavContent>
         <app-zone></app-zone>
       </ng-template>
     </li>
-    <li [ngbNavItem]="4">
+    <li [ngbNavItem]="5">
       <button ngbNavLink>حي</button>
       <ng-template ngbNavContent>
         <app-district></app-district>
-      </ng-template>
-    </li>
-    <li [ngbNavItem]="5">
-      <button ngbNavLink>قطعة</button>
-      <ng-template ngbNavContent>
-        <app-plot></app-plot>
       </ng-template>
     </li>
   </ul>

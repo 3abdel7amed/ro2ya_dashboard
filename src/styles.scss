@@ -116,3 +116,12 @@ table {
 ul.pagination {
   padding-inline: 0px;
 }
+
+.dropdown-menu.show {
+  max-height: 40vh;
+  overflow: auto;
+}
+
+button.dropdown-toggle::after {
+  margin-right: 32px;
+}

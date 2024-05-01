@@ -1,24 +1,24 @@
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { LocationService } from '../../../../services/government.service';
-import { Component, HostListener, Input, OnDestroy } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { DistrictService } from '../../../../services/district.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-government-delete',
-  templateUrl: './government-delete.component.html',
-  styleUrl: './government-delete.component.scss',
+  selector: 'app-district-delete',
+  templateUrl: './district-delete.component.html',
+  styleUrl: './district-delete.component.scss',
 })
-export class GovernmentDeleteComponent implements OnDestroy {
+export class DistrictDeleteComponent {
   @Input() data!: {
     id: number;
     name: string;
   };
   isSubmitted: boolean = false;
-  deleteGovernment: Subscription = new Subscription();
+  deletedSubscription: Subscription = new Subscription();
   loading: boolean = false;
 
   constructor(
-    private _LocationService: LocationService,
+    private _DistrictService: DistrictService,
     private _NgbActiveModal: NgbActiveModal
   ) {}
 
@@ -30,11 +30,12 @@ export class GovernmentDeleteComponent implements OnDestroy {
 
   submit() {
     this.loading = true;
-    this.deleteGovernment = this._LocationService
-      .deleteGover(this.data.id)
+    this.deletedSubscription = this._DistrictService
+      .deleteDistrict(this.data.id)
       .subscribe(
         (response) => {
           this.loading = false;
+          console.log(response);
           this._NgbActiveModal.close();
         },
         (error) => {
@@ -49,6 +50,6 @@ export class GovernmentDeleteComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.deleteGovernment.unsubscribe();
+    this.deletedSubscription.unsubscribe();
   }
 }
