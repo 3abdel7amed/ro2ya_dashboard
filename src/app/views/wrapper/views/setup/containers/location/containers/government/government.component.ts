@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Constants } from '../../../../../../../../constants/constants';
 import {
   SingleGovernment,
   ViewGovernment,

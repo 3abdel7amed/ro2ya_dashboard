@@ -1,4 +1,10 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  Input,
+  HostListener,
+} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
@@ -27,6 +33,12 @@ export class UpdateCityComponent implements OnInit, OnDestroy {
 
   get nameIsRequired() {
     return this.form.get('name')?.getError('required');
+  }
+
+  @HostListener('document:keydown.escape', ['$event'])
+  handleEscape(event: KeyboardEvent) {
+    // Execute your method here
+    this.dismiss();
   }
 
   constructor(

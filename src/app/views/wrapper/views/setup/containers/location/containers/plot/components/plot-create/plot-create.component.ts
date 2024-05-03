@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { PlotService } from '../../../../services/plot.service';
 import { CityService } from '../../../../services/city.service';
@@ -43,6 +43,12 @@ export class PlotCreateComponent {
     this.selectedName = entity.name;
     this.name?.enable();
     this.form.updateValueAndValidity();
+  }
+
+  @HostListener('document:keydown.escape', ['$event'])
+  handleEscape(event: KeyboardEvent) {
+    // Execute your method here
+    this.dismiss();
   }
 
   constructor(

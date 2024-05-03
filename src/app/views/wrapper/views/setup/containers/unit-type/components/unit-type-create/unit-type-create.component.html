@@ -1,0 +1,41 @@
+<div class="modal-header justify-content-between">
+  <h4 class="modal-title" id="modal-basic-title">
+    {{ data.data ? "تعديل" : "إضافة" }} نوع الوحدة
+  </h4>
+  <button
+    type="button"
+    class="btn-close m-0"
+    aria-label="Close"
+    (click)="dismiss()"
+  ></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="form" (ngSubmit)="submit(form)">
+    <div class="name-input">
+      <label for="name"> نوع الوحدة</label>
+      <input
+        formControlName="name"
+        class="form-control"
+        type="text"
+        id="name"
+      />
+      <div
+        *ngIf="nameIsRequired && isSubmitted"
+        class="alert alert-danger fs-7 mt-2 py-2"
+      >
+        الرجاء إدخال نوع الوحدة
+      </div>
+    </div>
+    <button
+      type="submit"
+      [ngClass]="{
+        'btn-warning': data.data,
+        'btn-primary': !data.data
+      }"
+      class="btn mt-4 w-auto me-auto d-flex align-items-center justify-content-center"
+    >
+      <span *ngIf="loading" class="loader"></span>
+      <span *ngIf="!loading">{{ data.data ? "تعديل" : "حفظ" }}</span>
+    </button>
+  </form>
+</div>

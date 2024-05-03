@@ -1,5 +1,11 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  Input,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { ICity } from '../../../../models/city.model';
 import { Subscription, from } from 'rxjs';
 import { ZoneService } from '../../../../services/zone.service';
@@ -42,6 +48,12 @@ export class ZoneCreateComponent implements OnInit, OnDestroy {
     this.selectedName = entity.name;
     this.name?.enable();
     this.form.updateValueAndValidity();
+  }
+
+  @HostListener('document:keydown.escape', ['$event'])
+  handleEscape(event: KeyboardEvent) {
+    // Execute your method here
+    this.dismiss();
   }
 
   constructor(

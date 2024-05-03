@@ -1,0 +1,21 @@
+<div class="modal-header justify-content-between">
+  <h4 class="modal-title" id="modal-basic-title">حذف نوع الوحدة</h4>
+  <button
+    type="button"
+    class="btn-close m-0"
+    aria-label="Close"
+    (click)="dismiss()"
+  ></button>
+</div>
+<div class="modal-body">هل أنت متأكد إنك تريد حذف {{ data.name }}</div>
+
+<div class="modal-footer">
+  <button
+    type="button"
+    class="w-auto me-auto btn btn-danger d-flex align-items-center justify-content-center"
+    (click)="submit()"
+  >
+    <span *ngIf="!loading">أحذف</span>
+    <span *ngIf="loading" class="loader"></span>
+  </button>
+</div>

@@ -1,0 +1,84 @@
+<app-breadcrumb [breadcrumbArray]="['الإعدادات', 'طريقة الاستلام ']">
+</app-breadcrumb>
+
+<div class="controls d-flex align-items-center gap-2">
+  <button
+    (click)="create()"
+    class="btn btn-primary d-flex align-items-center justify-content-center gap-2 fs-7"
+  >
+    <span>إنشاء</span>
+    <i class="fa-solid fa-plus"></i>
+  </button>
+</div>
+
+<div class="table-container" *ngIf="!loading; else tableLoading">
+  <table
+    class="table rounded overflow-hidden table-bordered mx-auto w-50 text-center mt-4"
+  >
+    <thead>
+      <tr>
+        <th>الرقم</th>
+        <th>الاسم</th>
+        <th>لوحة التحكم</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="tableResponse.length > 0; else noData">
+      <tr *ngFor="let government of tableResponse; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ government.name }}</td>
+        <td class="actions">
+          <i
+            (click)="openEditDialog(government)"
+            placement="top"
+            ngbTooltip="تعديل"
+            class="fa-solid fa-pen text-warning border-warning"
+          ></i>
+          <i
+            (click)="openDeleteConfirmDialog(government.id, government.name)"
+            placement="top"
+            ngbTooltip="حذف"
+            class="fa-solid fa-trash text-danger border-danger"
+          ></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ngb-pagination
+    class="d-flex justify-content-center mt-5"
+    *ngIf="!loading && tableResponse.length > 0"
+    [collectionSize]="tableResponse.length"
+    [(page)]="page"
+    [maxSize]="5"
+    [rotate]="true"
+    [ellipses]="true"
+    [boundaryLinks]="true"
+    (pageChange)="changePage($event)"
+  />
+</div>
+
+<ng-template #noData>
+  <tbody>
+    <tr>
+      <td colspan="3">
+        <div>
+          <img
+            class="w-100 d-inline-block mx-auto"
+            src="../../../../../../../../../assets/images/No data-cuate.png"
+            alt=""
+          />
+
+          <p class="mx-auto">ليس هنالك بيانات</p>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</ng-template>
+
+<ng-template #tableLoading>
+  <div
+    class="loading-container d-flex align-items-center justify-content-center"
+  >
+    <span class="loader loader-blue loader-x1"></span>
+  </div>
+</ng-template>

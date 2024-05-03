@@ -32,7 +32,7 @@
         'btn-warning': data.govern,
         'btn-primary': !data.govern
       }"
-      class="btn mt-2 d-flex align-items-center justify-content-center"
+      class="btn mt-4 w-auto me-auto d-flex align-items-center justify-content-center"
     >
       <span *ngIf="loading" class="loader"></span>
       <span *ngIf="!loading">{{ data.govern ? "تعديل" : "حفظ" }}</span>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContactComponent } from './containers/contact/contact.component';
-import { DirectionComponent } from './containers/direction/direction.component';
+import { DirectionComponent } from './containers/directions/direction.component';
 import { ExtraFeaturesComponent } from './containers/extra-features/extra-features.component';
 import { FinishingTypeComponent } from './containers/finishing-type/finishing-type.component';
 import { FloorComponent } from './containers/floor/floor.component';
