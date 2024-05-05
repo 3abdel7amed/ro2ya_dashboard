@@ -70,7 +70,6 @@ import { ReceivingTypeDeleteComponent } from './containers/receiving-type/compon
     ZoneComponent,
     DistrictComponent,
     PlotComponent,
-    BreadcrumbComponent,
     GovernmentCreateModalComponent,
     UpdateCityComponent,
     ZoneCreateComponent,
@@ -107,6 +106,7 @@ import { ReceivingTypeDeleteComponent } from './containers/receiving-type/compon
     HttpClientModule,
     NgbDropdownModule,
     ReactiveFormsModule,
+    BreadcrumbComponent,
   ],
 })
 export class SetupModule {}

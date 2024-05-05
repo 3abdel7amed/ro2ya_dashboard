@@ -1,0 +1,87 @@
+<div class="modal-header justify-content-between">
+  <h4 class="modal-title" id="modal-basic-title">
+    عرض تفاصيل وحدة {{ data.name }}
+  </h4>
+  <button
+    type="button"
+    class="btn-close m-0"
+    aria-label="Close"
+    (click)="dismiss()"
+  ></button>
+</div>
+<div class="modal-body">
+  <div class="row g-4">
+    <div class="col-12">
+      <div class="item">
+        <div class="image-container">
+          <img
+            class="w-100"
+            [src]="env.apiUrl + data.main_image"
+            [alt]="data.name"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="item">
+        <label class="fw-bold" for="name"> الوحدة:</label>
+        <span> {{ data.name }}</span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="item">
+        <label class="fw-bold" for="name"> المحافظة:</label>
+        <span> {{ data.governorate }}</span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="item">
+        <label class="fw-bold" for="name"> القطعة:</label>
+        <span> {{ data.plot }}</span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="item">
+        <label class="fw-bold" for="name"> المنطقة:</label>
+        <span> {{ data.zone }}</span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="item">
+        <label class="fw-bold" for="name"> الحي:</label>
+        <span> {{ data.district }}</span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="item">
+        <label class="fw-bold" for="name"> السعر:</label>
+        <span> {{ data.price }}</span>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="item">
+        <label class="fw-bold" for="name"> غرف النوم:</label>
+        <span> {{ data.bedroom_count }}</span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="item">
+        <label class="fw-bold" for="name"> الحمامات:</label>
+        <span> {{ data.bathroom_count }}</span>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="item">
+        <label class="fw-bold" for="name"> نوع الاستلام:</label>
+        <span> {{ data.receivingType }}</span>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="item">
+        <label class="fw-bold" for="name"> الوصف:</label>
+        <span> {{ data.full_description }}</span>
+      </div>
+    </div>
+  </div>
+</div>
